@@ -1,0 +1,61 @@
+{
+  "name": "cursor-mcp-extension",
+  "displayName": "MCP Sequential Thinking",
+  "version": "1.0.0",
+  "description": "Extensão MCP Sequential Thinking para o Cursor IDE",
+  "publisher": "waltagan",
+  "engines": {
+    "cursor": "^0.1.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:cursor-mcp.enable",
+    "onCommand:cursor-mcp.disable"
+  ],
+  "contributes": {
+    "configuration": {
+      "title": "MCP Sequential Thinking",
+      "properties": {
+        "mcpSequential.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Habilitar/Desabilitar MCP Sequential Thinking"
+        },
+        "mcpSequential.steps": {
+          "type": "number",
+          "default": 3,
+          "description": "Número de passos para o pensamento sequencial"
+        },
+        "mcpSequential.model": {
+          "type": "string",
+          "default": "gpt-4",
+          "enum": ["gpt-4", "gpt-3.5-turbo"],
+          "description": "Modelo GPT a ser usado"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "cursor-mcp.enable",
+        "title": "Habilitar MCP Sequential Thinking"
+      },
+      {
+        "command": "cursor-mcp.disable",
+        "title": "Desabilitar MCP Sequential Thinking"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "openai": "^4.28.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.7",
+    "typescript": "^4.5.5"
+  }
+}
